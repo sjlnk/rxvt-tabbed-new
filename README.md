@@ -46,7 +46,7 @@ Usage
 --------------------
 ```
 Shift+Down          - create new tab
-Mod4+N              - rename corrent tab (keys for control renaming:
+Mod4+N              - rename current tab (keys for control renaming:
                       Esc, Enter, Left, Right, Home, End, Backspace, Delete)
 Shift+Left          - move to previous tab
 Shift+Right         - move to next tab
