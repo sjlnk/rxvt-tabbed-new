@@ -42,6 +42,8 @@ URxvt.tabbed_new.tab-fg:    0
 URxvt.tabbed_new.tab-bg:    8
 ```
 
+My whole ``~/.Xresources`` is [here](https://github.com/maxiwell/LinuxConfig/blob/master/home/.Xresources).
+
 Usage
 --------------------
 ```
