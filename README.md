@@ -31,6 +31,7 @@ Configure
 
 add this params to ``~/.Xresources`` file (tabs colors):
 
+```
 URxvt.tabbed_new.tabren-bg: 3
 URxvt.tabbed_new.tabdiv-fg: 8
 URxvt.tabbed_new.tabbar-fg: 8
@@ -39,11 +40,12 @@ URxvt.tabbed_new.tabsel-fg: 1
 URxvt.tabbed_new.tabsel-bg: 8
 URxvt.tabbed_new.tab-fg:    0
 URxvt.tabbed_new.tab-bg:    8
+```
 
 Usage
 --------------------
 ```
-Shift-Down          - create new tab
+Shift+Down          - create new tab
 Mod4+N              - rename corrent tab (keys for control renaming:
                       Esc, Enter, Left, Right, Home, End, Backspace, Delete)
 Shift+Left          - move to previous tab
