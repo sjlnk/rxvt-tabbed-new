@@ -1,6 +1,6 @@
 install:
-	install -m0644 -oroot -groot tabbed_new /usr/local/lib/urxvt/perl/
+	cp tabbed_new ~/.urxvt/ext/
 
 uninstall:
-	rm -f /usr/local/lib/urxvt/perl/tabbed_new
+	rm -f ~/.urxvt/ext/tabbed_new
 
