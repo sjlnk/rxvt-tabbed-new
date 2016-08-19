@@ -292,16 +292,23 @@ sub tab_key_press {
     my ($self, $tab, $event, $keysum, $str) = @_;
     my $action;
 
-    if ($event->{state} & urxvt::Mod4Mask) {
-        if ($event->{state} & urxvt::ControlMask) {
-            $action = 'move-left'    if $keysum == 0xff51;  # Mod4+Ctrl+Left
-            $action = 'move-right'   if $keysum == 0xff53;  # Mod4+Ctrl+Right
-        } else {
-            $action = 'prev-tab'     if $keysum == 0xff51;  # Mod4+Left
-            $action = 'next-tab'     if $keysum == 0xff53;  # Mod4+Right
-            $action = 'new-tab'      if $keysum == 0x74;    # Mod4+T
+    if ($event->{state} & urxvt::ShiftMask) {
+        $action = 'prev-tab'        if $keysum == 0xff51;
+        $action = 'next-tab'        if $keysum == 0xff53;
+        $action = 'new-tab'         if $keysum == 0xff54;
+         
+        $action = 'move-left'       if $keysum == 0xff96;
+        $action = 'move-right'      if $keysum == 0xff98;
+   } elsif ($event->{state} & urxvt::Mod4Mask) {
+#        if ($event->{state} & urxvt::ControlMask) {
+#            $action = 'move-left'    if $keysum == 0xff51;  # Mod4+Ctrl+Left
+#            $action = 'move-right'   if $keysum == 0xff53;  # Mod4+Ctrl+Right
+#        } else {
+#            $action = 'prev-tab'     if $keysum == 0xff51;  # Mod4+Left
+#            $action = 'next-tab'     if $keysum == 0xff53;  # Mod4+Right
+#            $action = 'new-tab'      if $keysum == 0x74;    # Mod4+T
             $action = 'rename-start' if $keysum == 0x6e;    # Mod4+N
-        }
+#        }
     } elsif ($event->{state} & urxvt::ControlMask) {
         $action = 'next-tab'         if $keysum == 0xff09;  # Ctrl+Tab
     } elsif (defined $self->{tab_rename_started} && $self->{tab_rename_started}) {
@@ -426,7 +433,7 @@ package urxvt::ext::tabbed_new::tab;
 # simply proxies all interesting calls back to the tabbed class.
 
 {
-    for my $hook qw(start destroy key_press property_notify) {
+    for my $hook (qw(start destroy key_press property_notify)) {
         eval qq{
             sub on_$hook \{
                 my \$parent = \$_[0]\{term\}\{parent\} or return;
